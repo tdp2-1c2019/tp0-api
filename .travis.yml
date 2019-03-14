@@ -5,4 +5,18 @@ cache:
   directories:
   - node_modules
 install: npm install
-
+stages:
+- deploy
+jobs:
+  include:
+  - stage: deploy
+    script: ignore
+    deploy:
+    - provider: heroku
+      app: tp0-api
+      skip_cleanup: true
+      api_key:
+        secure: qPNS26zfybRddwJ2+DFzDeq+20H3NriJq/EcARZeHORAKnuLdoFcvFDgcsnVWRibwDk15PwWHDtXMKQAnqzJ1b17i85dCbRy90His61Hmbb1MH3L95JZUN6LQQPAlZ1ZNKExJRdEy/yXuzyg3hDViDPOAc4cwnJbRgJTd/U4+t1mnjsfNPpoOHS3XhurePe1A8vK5WvnpZngJn64S48cqGcpjjABCfyxfEMCALZsDQ7dlgPrlx2owAjySL7fiCluXjdIAC1KtOnDl+Y3433xjPUxfXsoz+qpfJF5mtB3SNjLc09NnxCRr5OuO0Qf8d9/wNY7eXVBnBBN1QeI+zBw9MNkvQi1dthD7xQqI+cqxoGRWwX2kfNFnpoes+5sWObjaskg1fx2QhpzYllDNJs779t6LoB+yGMgTK2B9pU66/R+qNq3Y+UICmKjUiSgusmkFjEfyxiETf6GME8M6WwWPvhlIuv6WmRY555K0fHTaK76Jrd+9VoKX9sbc22BYYE6KPFNRA1xqNURQTsB/eKWvwM7AqFWeLmJ8m5+NL5CgPCE1ee8IowRiunY1eil8XQTzJNCn1HkzhgkpOLF9uANXpNbq892eN59s/bo5A84Hic6DCUi+eDYMFyMRNWFMOxobHQIdvyefwtm9uN6TJPCd5g3YMm1OW6k9OCVBIxOQRs=
+      on:
+        branch: master
+        repo: tdp2-1c2019/tp0-api
