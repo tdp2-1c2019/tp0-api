@@ -1,1 +1,3 @@
-# tdp2-tp0-back
+# TP 0 - API
+
+Url remota: https://tp0-api.herokuapp.com/
