@@ -26,13 +26,13 @@ app.get('/api/books', async function (req, res) {
           categories: b.volumeInfo.categories
         })
       })
-      res.send(JSON.stringify(r))
+      res.status(200).json(r)
     } catch (e) {
-      res.send(e)
+      res.status(500).json({ message: e })
     }
   }
   else
-    res.send("FALTA Q")
+    res.status(500).json({ message: "FALTA Q" })
 })
 
 // #####################################################################
