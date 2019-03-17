@@ -31,11 +31,11 @@ app.get('/api/books', async function (req, res) {
       }
       result.data.items.forEach(b => {
         r.items.push({
-          name: b.volumeInfo.title,
-          cover: b.volumeInfo.imageLinks.smallThumbnail,
-          authors: b.volumeInfo.authors,
-          description: b.volumeInfo.description,
-          categories: b.volumeInfo.categories,
+          name: b.volumeInfo.title || "",
+          cover: b.volumeInfo.imageLinks.smallThumbnail || "",
+          authors: b.volumeInfo.authors || [],
+          description: b.volumeInfo.description || "",
+          categories: b.volumeInfo.categories || [],
           downloadLink: getDownloadLink(b.accessInfo)
         })
       })
