@@ -6,9 +6,12 @@ cache:
   - node_modules
 install: npm install
 stages:
+- test
 - deploy
 jobs:
   include:
+  - stage: test
+    script: npm test
   - stage: deploy
     script: ignore
     deploy:
